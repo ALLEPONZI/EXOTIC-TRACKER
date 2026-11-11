@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173c35">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Exotic Tracker">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+<title>Exotic Tracker</title>
+</head>
+<body>
+<header><div class="brand">🦎 <span>EXOTIC TRACKER</span></div><button id="exportBtn" class="quiet">Esporta backup</button></header>
+<main>
+<section class="hero"><p class="eyebrow">IL TUO DIARIO</p><h1>I miei animali</h1><p>Registra i pasti in modo semplice, con una frase.</p></section>
+<section class="panel">
+  <div class="section-head"><h2>Nuova registrazione</h2><span class="tag">CHAT</span></div>
+  <label for="message">Che cosa hanno mangiato oggi?</label>
+  <textarea id="message" rows="3" placeholder="Es. Oggi il gecko ciliatus femmina ha mangiato la pappina e il maschio 3 grilli medi"></textarea>
+  <button id="parseBtn" class="primary">Prepara registrazioni</button>
+  <p class="hint">Puoi indicare più animali nella stessa frase. Controlla le righe prima di salvarle.</p>
+  <div id="preview"></div>
+</section>
+<section class="panel">
+  <div class="section-head"><h2>Animali</h2><button id="addAnimalBtn" class="small">+ Aggiungi</button></div>
+  <div id="animals" class="animal-list"></div>
+</section>
+<section class="panel">
+  <div class="section-head"><h2>Diario alimentare</h2><select id="filterAnimal"><option value="">Tutti gli animali</option></select></div>
+  <div class="table-wrap"><table><thead><tr><th>Data</th><th>Animale</th><th>Sesso</th><th>Alimento</th><th>Quantità / note</th><th></th></tr></thead><tbody id="entries"></tbody></table></div>
+  <p id="empty" class="empty">Non ci sono ancora pasti registrati.</p>
+</section>
+<section class="panel">
+ <div class="section-head"><h2>Pesate</h2><button id="weightBtn" class="small">+ Registra peso</button></div>
+ <div id="weights"></div>
+</section>
+<footer>I dati restano salvati in questo browser sul dispositivo. Usa “Esporta backup” per conservarne una copia.</footer>
+</main>
+<dialog id="animalDialog"><form method="dialog" id="animalForm"><h2>Aggiungi animale</h2><label>Specie / nome descrittivo<input id="aSpecies" required placeholder="Es. Gecko ciliatus"></label><label>Sesso<select id="aSex"><option>Non specificato</option><option>Maschio</option><option>Femmina</option></select></label><label>Nome personalizzato (facoltativo)<input id="aName" placeholder="Es. Luna"></label><div class="actions"><button class="quiet">Annulla</button><button id="saveAnimal" class="primary" value="ok">Salva animale</button></div></form></dialog>
+<dialog id="weightDialog"><form method="dialog" id="weightForm"><h2>Registra una pesata</h2><label>Animale<select id="wAnimal"></select></label><label>Peso in grammi<input id="wValue" type="number" min="0.1" step="0.1" required placeholder="Es. 37"></label><label>Data<input id="wDate" type="date" required></label><div class="actions"><button class="quiet">Annulla</button><button class="primary" value="ok">Salva peso</button></div></form></dialog>
+<script src="app.js"></script>
+</body></html>
