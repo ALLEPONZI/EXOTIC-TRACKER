@@ -1,4 +1,4 @@
-const $=id=>document.getElementById(id);
+const $=id=>id.startsWith('[')?document.querySelector(id):document.getElementById(id);
 const today=()=>new Date().toLocaleDateString('en-CA');
 const initialAnimals=[
  {id:'gc-f',species:'Gecko ciliatus',sex:'Femmina',name:''},
